@@ -20,7 +20,6 @@ set guioptions-=m
 set guioptions-=l
 set guioptions-=r
 set background=dark
-colorscheme base16-monokai
 cd C:/Users/Joey/.vim
 
 
@@ -43,6 +42,8 @@ let mapleader=","
 " Use Vundle plugin to manage all other plugins
 
 source C:\Users/Joey/.vim/vundle.vim
+
+colorscheme base16-monokai
 
 " ================ Turn Off Swap Files ==============
 
