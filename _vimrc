@@ -9,14 +9,19 @@ set history=1000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down the bottom
 set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
-set visualbell                 "No sounds
-set t_vb
+set visualbell                  "No sounds
+set t_vb=
 set autoread                    "Reload files changed outside vim
 set mouse=
 set cursorline
 set ffs=dos
+set guioptions-=T
+set guioptions-=m
+set guioptions-=l
+set guioptions-=r
 set background=dark
 colorscheme base16-monokai
+cd C:/Users/Joey/.vim
 
 
 " This makes vim act like all other editors, buffers can
@@ -105,7 +110,7 @@ set sidescroll=1
 " ================ Search ===========================
 
 set incsearch       " Find the next match as we type the search
-set hlsearch        " Highlight searches by default
+"set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
@@ -122,3 +127,6 @@ nnoremap <C-y> 2<C-y>
 " Edit the vimrc file
 nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
+
+"Map jk to esc
+imap jk <Esc>
