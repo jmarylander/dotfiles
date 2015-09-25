@@ -1,0 +1,73 @@
+!------------------------------------------------------------------------------
+! c o l o r -  s e t t i n g s
+
+*background: #222222
+*foreground: #777777
+
+! Default
+! 0: black
+*color0:  #222222
+*color8:  #222222
+! 1: red
+*color1:  #9f6767
+*color9:  #9f6767
+! 2: green
+*color2:  #92ac68
+*color10: #92ac68
+! 3: yellow
+*color3:  #d0d293
+*color11: #d0d293
+! 4: blue
+*color4:  #9aacc3
+*color12: #9aacc3
+! 5: magenta
+*color5:  #bb77a4
+*color13: #bb77a4
+! 6: cyan
+*color6:  #77bbb5
+*color14: #77bbb5
+! 7: white
+*color7:  #777777
+*color15: #777777
+
+!------------------------------------------------------------------------------
+! u r x v t
+
+URxvt*geometry:         112x22  
+URxvt*urlLauncher:         google-chrome  
+URxvt*scrollBar:        false
+URxvt*scrollBar_right:        true
+URxvt*scrollColor:        #000000
+
+!-------------------------------------------------------------------------------
+!Font settings
+
+# Xft (X FreeType) with Bitstream, DejaVu, Liberation, or Terminus fonts:
+#  Fedora/debian packages: libXft/libxft2 
+#  An anti-aliased font setup with Xft looks fantastic; it can be a bit choppy 
+#  on older systems. You can always turn off anti-aliasing (antialias=false) if
+#  your terminal is sluggish. Use only ONE of the Xft pairs below:
+#
+# Xft: Bitstream fonts
+#  Fedora/debian packages: bitstream-vera-sans-mono-fonts/ttf-bitstream-vera 
+#URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=12:antialias=true:hinting=true
+#URxvt*boldFont: xft:Bitstream Vera Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
+#
+# Xft: DejaVu fonts
+#  Fedora/debian packages: dejavu-sans-mono-fonts/ttf-dejavu 
+URxvt*font: xft:DejaVu Sans Mono:pixelsize=12:antialias=true:hinting=true
+URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
+#
+# Xft: Liberation fonts
+#  Fedora/debian packages: liberation-mono-fonts/ttf-liberation
+#URxvt*font: xft:Liberation Mono:pixelsize=13:antialias=true:hinting=true
+#URxvt*boldFont: xft:Liberation Mono:bold:pixelsize=13:antialias=true:hinting=true
+#
+# Xft: Terminus fonts
+#  Fedora/debian packages: terminus-fonts/xfonts-terminus
+#URxvt*font: xft:terminus:pixelsize=15
+#URxvt*boldFont: xft:terminus:bold:pixelsize=15
+
+# Traditional fonts - a more traditional font setup in lieu of xft
+#URxvt*font:-*-courier-medium-r-normal-*-14-*-*-*-*-*-iso8859-1
+#URxvt*boldFont:-*-courier-bold-r-normal-*-14-*-*-*-*-*-iso8859-1
