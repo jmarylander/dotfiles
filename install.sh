@@ -92,14 +92,14 @@ if ask "Install symlinks?" Y; then
                         if [ -d $f ]; then
                             if [[ "$f" == *".config"* ]]; then
                                 for c in .config/*; do
-                                    #ln -sfn $dir/$c ${HOME}/$f/$c
+                                    ln -sfn $dir/$c ${HOME}/$c
                                 done
                             else
-                                #ln -sfn $f ${HOME}/$f
+                                ln -sfn $f ${HOME}/$(basename $f)
                             fi
 
                         else
-                            #ln -sf $f ${HOME}/$f
+                            ln -sf $f ${HOME}/$(basename $f)
                         fi
                     fi
                 fi
