@@ -56,7 +56,7 @@ if ask "Install missing packages?" Y; then
     git checkout gaps && git pull
     make
     sudo make install
-    
+
     #lightdm-webkit-greeter
     wget https://launchpad.net/lightdm-webkit-greeter/trunk/1.0/+download/lightdm-webkit-greeter-1.0.tar.gz
     tar xfv lightdm-webkit-greeter-1.0.tar.gz
@@ -65,7 +65,7 @@ if ask "Install missing packages?" Y; then
     ./configure
     make
     sudo make install
-    
+
     cd /usr/share/lightdm-webkit/themes
     sudo git clone https://github.com/artur9010/lightdm-webkit-material.git
     sudo sed -i 's/manokwari-theme-greeter/lightdm-webkit-material/g' /etc/lightdm/lightdm-webkit-greeter.conf
@@ -90,12 +90,14 @@ if ask "Install symlinks?" Y; then
                 if [[ "$f" != *"package-selections"* ]]; then
                     if [[ "$f" != *"install.sh"* ]]; then
                         if [ -d $f ]; then
-                            if [[ "$f" == *".config"* ]]; then
-                                for c in .config/*; do
-                                    ln -sfn $dir/$c ${HOME}/$c
-                                done
-                            else
-                                ln -sfn $f ${HOME}/$(basename $f)
+                            if [[ "$f" != *".git" ]]; then
+                                if [[ "$f" == *".config"* ]]; then
+                                    for c in .config/*; do
+                                        ln -sfn $dir/$c ${HOME}/$c
+                                    done
+                                else
+                                    ln -sfn $f ${HOME}/$(basename $f)
+                                fi
                             fi
 
                         else

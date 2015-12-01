@@ -7,7 +7,7 @@ COMPLETION_WAITING_DOTS="true"
 
 plugins=(tmux jump)
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="/bin/:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR="nvim"
