@@ -56,6 +56,7 @@ if ask "Install missing software?" Y; then
             git clone https://github.com/neovim/neovim
             cd neovim
             make && sudo make install
+            sudo pip3 install neovim
             cd ..
         fi
         if [[ $distro == *"ubuntu"* ]]; then
@@ -122,6 +123,10 @@ if ask "Install missing software?" Y; then
         bash autogen.sh
         make
         sudo make install
+    fi
+
+    if ask "Install oh-my-zsh" Y; then
+        sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     fi
 fi
 
