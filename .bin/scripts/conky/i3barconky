@@ -13,7 +13,7 @@ while read;do
     X=$(($X-50))
     case "${NAME}" in
         \"date\")
-            yad --no-buttons --geometry=+$X+20 --class "YADWIN" --calendar
+            yad --no-buttons --mouse --class "YADWIN" --calendar
             ;;
         \"temp\")
             yad --no-buttons --text-info --height 260 --width 500 --mouse  --class "YADWIN" --margins=10 --filename=<(acpi -V)
