@@ -127,7 +127,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 # bar
 bar {
-    position top
+#    position top
   #	status_command i3blocks -c /home/joey/.i3/i3blocks.conf
   i3bar_command /usr/bin/i3bar
   status_command /home/joey/.bin/scripts/conky/i3barconky
