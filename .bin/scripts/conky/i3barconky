@@ -3,7 +3,7 @@
 #echo "{\"version\":1}"
 echo "{ \"version\": 1, \"stop_signal\": 10, \"cont_signal\": 12, \"click_events\": true }"
 echo "[[]"
-conky -d -c ~/.conkyrc
+conky -d 
 
 IFS="}"
 while read;do
@@ -16,7 +16,7 @@ while read;do
             yad --no-buttons --geometry=+$X+20 --class "YADWIN" --calendar
             ;;
         \"temp\")
-            yad --no-buttons --text-info --geometry=500x260+$X+20 --class "YADWIN" --margins=10 --filename=<(acpi -V)
+            yad --no-buttons --text-info --height 260 --width 500 --mouse  --class "YADWIN" --margins=10 --filename=<(acpi -V)
             ;;
         \"bright\")
             LEVEL=$(/home/joey/.bin/scripts/conky/blevel.sh)

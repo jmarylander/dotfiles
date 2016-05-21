@@ -6,7 +6,7 @@ dir=~/dotfiles
 olddir=~/dotfiles_old
 
 basefiles=".bin .config/nvim .config/base16-shell .fonts .gitconfig .gitignore .tmux.conf .zshrc"
-guifiles=".compton.conf .config/base16-shell .config/gtk-2.0 .config/gtk-3.0 xfce4 .fehbg .gtkrc-2.0 .i3 .lock.png .wallpaper.jpg .Xauthority .Xresources"
+guifiles=".compton.conf .config/base16-shell .config/gtk-2.0 .config/gtk-3.0 .conky xfce4 .fehbg .gtkrc-2.0 .i3 .lock.png .wallpaper.jpg .Xauthority .Xresources"
 
 ask() {
     # http://djm.me/ask
