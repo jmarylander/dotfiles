@@ -319,8 +319,26 @@ let g:NERDTreeAutoDeleteBuffer=1
 " -----------------------------------------------------
 let g:UltiSnipsUsePythonVersion=3
 
+" -----------------------------------------------------
+" 4.5 Syntastic settings
+" -----------------------------------------------------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_log_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" -----------------------------------------------------
+" 4.6 Fsharp settings
+" -----------------------------------------------------
+let g:fsharp_only_check_errors_on_write = 1
+
+" -----------------------------------------------------
 " 4.9 Neomake settings
-"-----------------------------------------------------
+"------------------------------------------------------
 let g:neomake_verbose=0
 let g:neomake_warning_sign = {
             \ 'text': '>',
@@ -378,3 +396,9 @@ nnoremap <silent> <leader>s :call utils#uniteSnippets()<CR>
 nnoremap <silent> <leader>j :call utils#uniteJumps()<CR>
 " My custom unite [m]enu with commonly used commands not mapped to keys
 nnoremap <silent> <leader>m :call utils#uniteCustomMenu()<CR>
+
+
+" :W -  To write with root prives
+function! W() abort
+:execute ':silent w !sudo tee % > /dev/null' | :edit!
+endfunction

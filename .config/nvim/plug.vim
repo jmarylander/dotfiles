@@ -40,21 +40,13 @@ Plug 'tsukkee/unite-tag'
 " Colorscheme source
 Plug 'ujihisa/unite-colorscheme'
 
-" Nerdtree file browser
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTreeToggle'] }
 " Lightline (simple status line)
 Plug 'itchyny/lightline.vim'
 " Buffers tabline
 Plug 'ap/vim-buftabline'
-" Highlight long lines
-Plug 'whatyouhide/vim-lengthmatters'
 
 " Fugitive
 Plug 'tpope/vim-fugitive'
-" Git log viewer
-Plug 'gregsexton/gitv', { 'on': 'Gitv' }
-" Git changes showed on line numbers
-Plug 'airblade/vim-gitgutter'
 " Color picker
 Plug 'KabbAmine/vCoolor.vim', { 'on': 'VCoolor' }
 " Neovim terminal improving
@@ -91,5 +83,17 @@ Plug 'edsono/vim-matchit'
 Plug 'tpope/vim-repeat'
 " Delete all but current buffer
 Plug 'vim-scripts/BufOnly.vim'
+
+
+"F#
+Plug 'fsharp/vim-fsharp', {
+            \ 'for': 'fsharp',
+            \ 'do': 'make fsautocomplete',
+            \}
+
+" Global Syntax highlighting
+"Plug 'scrooloose/syntastic'
+" Tab instead of <c-n> for autocomplete
+Plug 'ervandew/supertab'
 
 call plug#end()

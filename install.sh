@@ -89,9 +89,6 @@ if ask "Install missing software?" Y; then
 
     if ask "Install i3-gaps?" Y; then
         #i3-gaps
-        cd ${HOME}
-        mkdir src
-        cd src
         git clone https://www.github.com/Airblader/i3 i3-gaps
         cd i3-gaps
         git checkout gaps && git pull
@@ -104,7 +101,7 @@ if ask "Install missing software?" Y; then
         wget https://launchpad.net/lightdm-webkit-greeter/trunk/1.0/+download/lightdm-webkit-greeter-1.0.tar.gz
         tar xfv lightdm-webkit-greeter-1.0.tar.gz
         rm lightdm-webkit-greeter-1.0.tar.gz
-        cd light-webkit-greeter
+        cd lightdm-webkit-greeter-1.0
         ./configure
         make
         sudo make install
@@ -112,12 +109,11 @@ if ask "Install missing software?" Y; then
         cd /usr/share/lightdm-webkit/themes
         sudo git clone https://github.com/artur9010/lightdm-webkit-material.git
         sudo sed -i 's/manokwari-theme-greeter/lightdm-webkit-material/g' /etc/lightdm/lightdm-webkit-greeter.conf
-        sudo sed -i 's/#greeter-session=lightdm-gtk-greeter/greeter-session=lightdm-webkit-greeter/g' /etc/ligtdm/lightdm.conf
+        sudo sed -i 's/#*greeter-session*/greeter-session=lightdm-webkit-greeter #/g' /etc/lightdm/lightdm.conf
     fi
 
     if ask "Install moka icon them?" Y; then
         #moka-icon-theme
-        cd ${HOME}/src
         git clone https://github.com/moka-project/moka-icon-theme.git
         cd moka-icon-theme
         bash autogen.sh
@@ -144,15 +140,13 @@ if ask "Install all symlinks?" Y; then
     # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
     for file in $basefiles; do
         echo "Moving any existing dotfiles from ~ to $olddir"
-        mv ~/.$file ~/dotfiles_old/
         echo "Creating symlink to $file in home directory."
-        ln -s $dir/$file ~/.$file
+        ln -s $dir/$file ~/$file
     done
     for file in $guifiles; do
         echo "Moving any existing dotfiles from ~ to $olddir"
-        mv ~/.$file ~/dotfiles_old/
         echo "Creating symlink to $file in home directory."
-        ln -s $dir/$file ~/.$file
+        ln -s $dir/$file ~/$file
     done
 else
     if ask "Install basefile symlinks?" Y; then
@@ -169,12 +163,12 @@ else
 
         # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
         for file in $basefiles; do
-            echo "Moving any existing dotfiles from ~ to $olddir"
-            mv ~/.$file ~/dotfiles_old/
             echo "Creating symlink to $file in home directory."
             ln -s $dir/$file ~/.$file
         done
     fi
 fi
 
+echo "To have backlight cli install https://github.com/haikarainen/light"
+echo "To have i3 dialogs install yad. see sourceforge"
 echo "Done!"

@@ -2,7 +2,7 @@ export ZSH=/home/joey/.oh-my-zsh
 
 ZSH_THEME="agnoster"
 COMPLETION_WAITING_DOTS="true"
- ZSH_TMUX_AUTOSTART="true"
+# ZSH_TMUX_AUTOSTART="true"
 # ZSH_TMUX_AUTOQUIT="true"
 
 plugins=(tmux jump)
@@ -11,6 +11,8 @@ export PATH="/bin/:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/u
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR="nvim"
+
+alias sudo="nocorrect sudo "
 
 alias l="ls -lFh"
 alias la="ls -lAFh"
@@ -31,16 +33,21 @@ alias nviminit="nvim ~/.config/nvim/init.vim"
 alias i3conf="nvim ~/.i3/config"
 alias tmuxconf="nvim ~/.tmux.conf"
 
-alias install="sudo apt-get install"
-alias remove="sudo apt-get remove"
-alias update="sudo apt-get update"
-alias search="sudo apt-cache search"
+alias install="sudo apt install"
+alias remove="sudo apt remove"
+alias update="sudo apt update"
+alias search="sudo apt search"
 
 alias quit="exit"
 alias :q="exit"
 
 alias univpn="sudo ~/.ssh/unix/univpn"
 
+alias ta='tmux attach -t main || tmux new -s main'
+alias td='tmux detach'
+
+alias xcopy='xclip -selection clipboard'
+alias xpaste='xclip -o'
 
 xfer() {
     # write to output to tmpfile because of progress bar
@@ -67,6 +74,31 @@ unixssh(){
 }
 alias ussh=unixssh
 
+ex ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1   ;;
+      *.tar.gz)    tar xzf $1   ;;
+      *.bz2)       bunzip2 $1   ;;
+      *.rar)       unrar x $1     ;;
+      *.gz)        gunzip $1    ;;
+      *.tar)       tar xf $1    ;;
+      *.tbz2)      tar xjf $1   ;;
+      *.tgz)       tar xzf $1   ;;
+      *.zip)       unzip $1     ;;
+      *.Z)         uncompress $1;;
+      *.7z)        7z x $1      ;;
+      *)           echo "'$1' cannot be extracted via ex()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+alias extract=ex
+
+alias newPassword="cat /dev/urandom | tr -dc 'a-zA-Z0-9-_%^&*(){}?><,./;:' | fold -w "$1" | head -1"
 alias vimi='vim $(fzf)'
 
 # Git aliases

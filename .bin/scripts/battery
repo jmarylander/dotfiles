@@ -16,6 +16,7 @@ then
             symbol='↑'
             ;;
         "Full")
+            echo "Fully Charged"
             exit
             ;;
     esac
