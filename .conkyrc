@@ -16,9 +16,9 @@ template0 {"full_text": " \1 ${template1 BAT0}","color":\2}
 TEXT
 ,[{"full_text": " "},
   {"full_text": " ▣ $cpu% [${cpu cpu1}.${cpu cpu2}.${cpu cpu3}.${cpu cpu4}]","color": "\#99D7FF", "name":"cpu"},
-  {"full_text": " 🌡 ${acpitemp} ","color": "\#FB4646", "name":"temp"},
+  {"full_text": "🌡 ${acpitemp} ","color": "\#FB4646", "name":"temp"},
   {"full_text": "  ${exec /home/joey/.bin/scripts/conky/blevel.sh} ","color": "\#DFD60C", "name":"bright"},
-  {"full_text": " ${exec /home/joey/.bin/scripts/conky/pacvol.sh display}","color":"\#6AFFD8", "name":"volume"},
+  {"full_text": "${exec /home/joey/.bin/scripts/conky/pacvol.sh display}","color":"\#6AFFD8", "name":"volume"},
   ${if_existing /sys/class/power_supply/AC/online 0}
     ${if_match ${battery_percent BAT0} <= 20}
       ${if_match ${battery_percent BAT1} <= 20}
@@ -34,7 +34,7 @@ TEXT
     ${template0  "\\#94F397"},
   $endif
   ${if_existing /sys/class/net/enp0s25/operstate up}
-    {"full_text": "", "color": "\#8BADF9"}, 
+    {"full_text": "🔌", "color": "\#8BADF9"}, 
   ${endif}
   ${if_existing /sys/class/net/wlp3s0/operstate up}
     {"full_text": "   ${wireless_link_qual_perc wlp3s0}%", "color": "\#8BADF9"},
