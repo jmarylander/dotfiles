@@ -42,9 +42,13 @@ ask() {
 
 if ask "Install missing software?" Y; then
     if ask "Are you running Debian and want to install missing packages?" Y; then
+        sudo apt-key add ./packages/repo.keys
+        sudo cp -R ./packages/sources.list* /etc/apt/
+        sudo apt-get update
         sudo apt-get install dselect
+        sudo dselect update
         sudo dpkg --set-selections < ./package-selections
-        sudo apt-get dselect-upgrade
+        sudo apt-get dselect-upgrade -y
 
     fi
 
