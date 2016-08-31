@@ -6,7 +6,7 @@ dir=~/dotfiles
 olddir=~/dotfiles_old
 
 basefiles=".bin .config/nvim .config/base16-shell .fonts .gitconfig .gitignore .tmux.conf .zshrc"
-guifiles=".compton.conf .config/base16-shell .config/gtk-2.0 .config/gtk-3.0 .conky xfce4 .fehbg .gtkrc-2.0 .i3 .lock.png .wallpaper.jpg .Xauthority .Xresources"
+guifiles=".compton.conf .config/base16-shell .config/gtk-2.0 .config/gtk-3.0 .conkyrc .config/xfce4 .fehbg .gtkrc-2.0 .i3 .lock.png .wallpaper.jpg .Xauthority .Xresources"
 
 ask() {
     # http://djm.me/ask
@@ -144,11 +144,18 @@ if ask "Install all symlinks?" Y; then
     # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
     for file in $basefiles; do
         echo "Moving any existing dotfiles from ~ to $olddir"
+        if [ -a ~/$file ]; then
+            mv ~/$file $olddir
+        fi
         echo "Creating symlink to $file in home directory."
         ln -s $dir/$file ~/$file
     done
+    echo "symlinking gui files now"
     for file in $guifiles; do
         echo "Moving any existing dotfiles from ~ to $olddir"
+        if [ -a ~/$file ]; then
+            mv ~/$file $olddir
+        fi
         echo "Creating symlink to $file in home directory."
         ln -s $dir/$file ~/$file
     done

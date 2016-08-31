@@ -10,7 +10,13 @@ plugins=(tmux jump)
 export PATH="/bin/:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR="nvim"
+alias vimrc="vim ~/.vimrc"
+
+if type nvim > /dev/null 2>&1; then
+  export EDITOR="nvim"
+  alias vim='nvim'
+  alias vimrc="nvim ~/.config/nvim/init.vim"
+fi
 
 alias sudo="nocorrect sudo "
 
@@ -26,10 +32,7 @@ alias lrt="ls -1Fcrt"
 
 alias j="jump"
 
-alias vim="nvim"
-
 alias zshrc="nvim ~/.zshrc"
-alias nviminit="nvim ~/.config/nvim/init.vim"
 alias i3conf="nvim ~/.i3/config"
 alias tmuxconf="nvim ~/.tmux.conf"
 
@@ -98,7 +101,10 @@ ex ()
 
 alias extract=ex
 
-alias newPassword="cat /dev/urandom | tr -dc 'a-zA-Z0-9-_%^&*(){}?><,./;:' | fold -w "$1" | head -1"
+np() {
+    cat /dev/urandom | tr -dc 'a-zA-Z0-9-_%^&*(){}?><,./;:' | fold -w $1 | head -1
+}
+alias newPassword=np
 alias vimi='vim $(fzf)'
 
 # Git aliases
@@ -106,6 +112,7 @@ alias gc="git commit -m "$1""
 alias gaa="git add -A ."
 alias gp="git push $1 $2"
 alias glo="git log --oneline"
+alias gsa="git status"
 
 BASE16_SHELL="$HOME/.config/base16-shell/base16-gooey.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL

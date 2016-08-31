@@ -13,20 +13,20 @@ MAXVOL=65537 # let's just assume this is the same all over
 MUTED=0
 #MAXVOL=`pacmd list-sinks | grep "volume steps" | cut -d: -f2 | tr -d "[:space:]"`
 
-MUTED=`pacmd list-sinks 0 | grep muted | cut -d ' ' -f 2`
-#VOLPERC=`pactl list sinks | awk '/Volume: 0:/ {print substr($3, 1, index($3, "%") - 1)}' | head -n1`
-VOLPERC=`pactl list sinks | awk '/Volume: front-left:/ {print substr($5, 1, index($5, "%") - 1)}'`
+MUTED=`pacmd list-sinks $SINK | grep muted | cut -d ' ' -f 2`
+VOLPERC=`pactl list sinks | awk '/Volume: front-left:/ {print $5}' | head -n1 | tr -d '%'`
+#VOLPERC=`pactl list sinks | awk '/Volume: front-left:/ {print substr($5, 1, index($5, "%") - 1)}'`
 SKIPOVERCHECK=1
 
 display(){
   if [ "$MUTED" = "yes" ]; then
-    echo "🔇 Muted"
+    echo "🔇 Muted "
   elif [ "$VOLPERC" -lt 33 ]; then
-    echo "🔈 ${VOLPERC}%"
+    echo "🔈 ${VOLPERC%}"
   elif [ "$VOLPERC" -lt 66 ]; then
-    echo "🔉 ${VOLPERC}%"
+    echo "🔉 ${VOLPERC%}"
   else
-    echo "🔊 ${VOLPERC}%"
+    echo "🔊 ${VOLPERC%}"
   fi
 }
 

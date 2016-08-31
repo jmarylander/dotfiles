@@ -84,16 +84,13 @@ Plug 'tpope/vim-repeat'
 " Delete all but current buffer
 Plug 'vim-scripts/BufOnly.vim'
 
-
-"F#
-Plug 'fsharp/vim-fsharp', {
-            \ 'for': 'fsharp',
-            \ 'do': 'make fsautocomplete',
-            \}
+"autocomplete
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
 " Global Syntax highlighting
 "Plug 'scrooloose/syntastic'
-" Tab instead of <c-n> for autocomplete
-Plug 'ervandew/supertab'
 
 call plug#end()

@@ -332,9 +332,9 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " -----------------------------------------------------
-" 4.6 Fsharp settings
+" 4.6 Deoplete settings
 " -----------------------------------------------------
-let g:fsharp_only_check_errors_on_write = 1
+let g:deoplete#enable_at_startup = 1
 
 " -----------------------------------------------------
 " 4.9 Neomake settings

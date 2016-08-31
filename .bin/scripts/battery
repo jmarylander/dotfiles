@@ -1,6 +1,6 @@
 #!/bin/sh
 
-INSTANCE="${1:-BAT0}"
+INSTANCE="${1:-BAT1}"
 ALERT_LOW="${2:-10}"
 
 if test -e "/sys/class/power_supply/$INSTANCE"
