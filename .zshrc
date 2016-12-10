@@ -7,7 +7,7 @@ COMPLETION_WAITING_DOTS="true"
 
 plugins=(tmux jump)
 
-export PATH="/bin/:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="/bin/:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/joey/.bin/scripts:/home/joey/.bin/scripts/day-night"
 source $ZSH/oh-my-zsh.sh
 
 alias vimrc="vim ~/.vimrc"
@@ -40,6 +40,8 @@ alias install="sudo apt install"
 alias remove="sudo apt remove"
 alias update="sudo apt update"
 alias search="sudo apt search"
+
+alias weather="curl -sS \"wttr.in/boulder?u\""
 
 alias quit="exit"
 alias :q="exit"
@@ -116,8 +118,3 @@ alias gsa="git status"
 
 BASE16_SHELL="$HOME/.config/base16-shell/base16-gooey.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-
-export NVM_DIR="/home/joey/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

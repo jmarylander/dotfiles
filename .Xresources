@@ -54,3 +54,36 @@ xterm*colorUL:     Underline_Color
 xterm*foreground:  Foreground_Color
 xterm*background:  Background_Color
 xterm*cursorColor: Cursor_Color
+
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+!rofi.key-run: SuperL+space
+!rofi.key-i2: SuperL+shift+space
+!rofi.font: Source Code Pro for Powerline, Font Awesome 10 
+rofi.fuzzy: true
+
+
+! bordercolor
+rofi.bc: #A6E22E
+
+! normal
+rofi.bg: Background_Color
+rofi.bg-active: #272822
+rofi.bg-urgent: #272822
+ 
+rofi.fg: #F8F8F2
+rofi.fg-active: #A6E22E
+rofi.fg-urgent: #F92672
+
+! highlight
+rofi.hlbg: #303030
+rofi.hlbg-active: #303030
+rofi.hlbg-urgent: #303030
+
+rofi.hlfg: #F92672
+rofi.hlfg-active: #F92672
+rofi.hlfg-urgent: #F92672
+
+!rofi.sidebar-mode: true
+

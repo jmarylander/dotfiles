@@ -22,4 +22,5 @@ ColorForeground=#C0C5CE
 ColorCursor=#C0C5CE
 ColorBackground=#1B2B34
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
+ScrollingLines=5000
 

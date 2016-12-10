@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# export DBUS_SESSION_BUS_ADDRESS environment variable because cron hates me
+PID=$(pgrep -u joey gnome-session)
+export DBUS_SESSION_BUS_ADDRESS=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$PID/environ | cut -d= -f2-)
+
+gsettings set org.gnome.desktop.interface gtk-theme 'Flat-Plat-laptop'
+gsettings set org.gnome.desktop.background picture-uri 'file:///home/joey/Pictures/night.png'
+#/usr/bin/gsettings --schemadir ~/.local/share/gnome-shell/extensions/drop-down-terminal@gs-extensions.zzrough.org set org.zzrough.gs-extensions.drop-down-terminal background-color 'rgb(33,33,33)'

@@ -228,11 +228,12 @@ bindsym XF86MonBrightnessDown exec light -U 5
 bindsym $mod+Return exec xfce4-terminal
 bindsym $mod+Shift+q kill
 bindsym Print exec screenshot
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 450  -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
+bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 450  -opacity "85" -font "System San Francisco Display 18"
+#bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 450  -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
 # startup
 exec_always --no-startup-id feh --bg-scale /home/joey/.wallpaper.jpg
-exec_always --no-startup-id xrandr --output HDMI-1 --off --output eDP-1 --mode 1920x1080 --pos 0x0 --rotate normal
+exec_always --no-startup-id xrandr --output HDMI-1 --off --output eDP1 --mode 1920x1080 --pos 0x0 --rotate normal
 
 exec --no-startup-id i3-msg 'workspace $workspace2; exec xfce4-terminal'
 
@@ -243,4 +244,4 @@ exec_always xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
 exec --no-startup-id compton -f
 exec --no-startup-id nm-applet
 exec --no-startup-id light -S 50
-exec --no-startup-id xflux -z 98104
+exec --no-startup-id xflux -z 80303

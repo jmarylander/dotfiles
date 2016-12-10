@@ -49,6 +49,7 @@ if ask "Install missing software?" Y; then
         sudo dselect update
         sudo dpkg --set-selections < ./package-selections
         sudo apt-get dselect-upgrade -y
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
     fi
 

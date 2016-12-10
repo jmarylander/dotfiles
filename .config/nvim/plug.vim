@@ -83,6 +83,10 @@ Plug 'edsono/vim-matchit'
 Plug 'tpope/vim-repeat'
 " Delete all but current buffer
 Plug 'vim-scripts/BufOnly.vim'
+" NerdTree
+Plug 'scrooloose/nerdtree'
+" TagBar
+Plug 'majutsushi/tagbar'
 
 "autocomplete
 function! DoRemote(arg)

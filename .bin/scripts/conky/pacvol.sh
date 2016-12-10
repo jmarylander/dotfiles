@@ -7,7 +7,7 @@
 #           Need to fix this for systems with multiple sinks
 #
 
-SINK=0
+SINK=1
 STEP=1
 MAXVOL=65537 # let's just assume this is the same all over
 MUTED=0
@@ -115,8 +115,4 @@ echo "$VOLUME : $OVERMAX"
  	fi
  fi
 
-#echo "$VOLUME: $MAXVOL/100 * $VOLPERC+$VOLSTEP"
 pacmd set-sink-volume $SINK $VOLUME > /dev/null
-# VOLPERC=`pacmd list-sinks | grep "volume" | head -n1 | cut -d: -f3 | cut -d% -f1 | tr -d "[:space:]"`
-
-#osd_cat -b percentage -P $VOLPERC --delay=1 --align=center --pos bottom --offset 50 --color=green&

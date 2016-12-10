@@ -22,6 +22,7 @@ set scrolloff=5                             " Scroll when closing to top or bott
 set updatetime=1000                         " Update time used to create swap file or other things
 set noswapfile
 set mouse=
+set cursorline
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -184,8 +185,8 @@ nnoremap <silent> <F6> :set nohlsearch!<CR> :set nohlsearch?<CR>
 nnoremap <silent> <F7> :set list!<CR> :set list?<CR>
 " New horizontal term buffer
 nnoremap <silent> <F8> :call utils#newVertTerm()<CR>
-" Free
-" nnoremap <silent> <F9> :Command<CR>
+" Tagbar
+ nnoremap <silent> <F9> :TagbarToggle<CR>
 " Free
 " nnoremap <silent> <F10> :Command<CR>
 " Free
@@ -319,17 +320,6 @@ let g:NERDTreeAutoDeleteBuffer=1
 " -----------------------------------------------------
 let g:UltiSnipsUsePythonVersion=3
 
-" -----------------------------------------------------
-" 4.5 Syntastic settings
-" -----------------------------------------------------
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_log_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " -----------------------------------------------------
 " 4.6 Deoplete settings
@@ -402,3 +392,8 @@ nnoremap <silent> <leader>m :call utils#uniteCustomMenu()<CR>
 function! W() abort
 :execute ':silent w !sudo tee % > /dev/null' | :edit!
 endfunction
+
+"open md files in chrome with  F8
+
+autocmd BufEnter *.md exe 'noremap <F8> :!google-chrome %:p<CR>'
+

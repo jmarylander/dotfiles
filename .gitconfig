@@ -12,6 +12,7 @@
   ui = true
 [core]
   editor = nvim
+	autocrlf = input
 [alias]
   a = add
   aa = add --all
