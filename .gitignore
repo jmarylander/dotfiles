@@ -68,3 +68,18 @@ Session.vim
 .rake_tasks
 .meteor/
 .tags
+
+#Dotfiles specific
+.config/nvim/.VimballRecord
+.config/nvim/.netrwhist
+.config/nvim/plugged/
+.config/nvim/tmp/
+.config/xfce4/helpers.rc
+.fonts/fonts.dir
+albert/
+greeter/
+i3-gaps/
+light/
+moka-icon-theme/
+neovim/
+solunar_cmdline/
