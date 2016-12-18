@@ -32,9 +32,9 @@ alias lrt="ls -1Fcrt"
 
 alias j="jump"
 
-alias zshrc="nvim ~/.zshrc"
-alias i3conf="nvim ~/.i3/config"
-alias tmuxconf="nvim ~/.tmux.conf"
+alias zshrc="vim ~/.zshrc"
+alias i3conf="vim ~/.i3/config"
+alias tmuxconf="vim ~/.tmux.conf"
 
 alias install="sudo apt install"
 alias remove="sudo apt remove"
@@ -42,11 +42,10 @@ alias update="sudo apt update"
 alias search="sudo apt search"
 
 alias weather="curl -sS \"wttr.in/boulder?u\""
+alias restartnetwork="sudo service network-manager restart && sudo service networking restart"
 
 alias quit="exit"
 alias :q="exit"
-
-alias univpn="sudo ~/.ssh/unix/univpn"
 
 alias ta='tmux attach -t main || tmux new -s main'
 alias td='tmux detach'
@@ -62,22 +61,6 @@ xfer() {
     rm -f $tmpfile;
 }
 alias transfer=xfer
-
-unixssh(){
-    (ps -ef | grep openvpn | grep -v grep | grep -q ovpn)
-    vpn=$?
-    pw="Tree5House\!\r"
-    if [[ $vpn -ne 0 ]] ; then
-        sudo ~/.ssh/unix/univpn
-        sleep 5s
-    fi
-    cmd="spawn ssh un$1;\
-        expect 'root@100.64.17.$1\'s password: ';\
-        send $pw;\
-        interact;"
-    /usr/bin/expect -c $cmd
-}
-alias ussh=unixssh
 
 ex ()
 {

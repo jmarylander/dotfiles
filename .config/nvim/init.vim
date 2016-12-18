@@ -23,6 +23,7 @@ set updatetime=1000                         " Update time used to create swap fi
 set noswapfile
 set mouse=
 set cursorline
+set inccommand=split
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -41,7 +42,6 @@ let mapleader="\<space>"
 " =============== plugInitialization ===============
 
 source ~/.config/nvim/plug.vim
-
 
 
 " ================ Turn Off Swap Files ==============

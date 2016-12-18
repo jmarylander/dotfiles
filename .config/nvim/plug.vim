@@ -18,12 +18,10 @@ Plug 'janko-m/vim-test', { 'on': ['TestFile', 'TestLast', 'TestNearest', 'TestSu
 Plug 'bkad/CamelCaseMotion' 
 " Python syntax
 Plug 'mitsuhiko/vim-python-combined'
-" Elm
-Plug 'lambdatoast/elm.vim'
 " Markdown syntax and helpers
 Plug 'plasticboy/vim-markdown'
 " Tmux syntax
-Plug 'tejr/vim-tmux'
+Plug 'tmux-plugins/vim-tmux'
 " Git syntax
 Plug 'tpope/vim-git'
 
@@ -47,8 +45,6 @@ Plug 'ap/vim-buftabline'
 
 " Fugitive
 Plug 'tpope/vim-fugitive'
-" Color picker
-Plug 'KabbAmine/vCoolor.vim', { 'on': 'VCoolor' }
 " Neovim terminal improving
 Plug 'kassio/neoterm', { 'on': 'T' }
 " Unix commands integration
@@ -75,10 +71,8 @@ Plug 'mhinz/vim-sayonara', { 'on': 'Sayonara' }
 Plug 'chip/vim-fat-finger'
 " Hacker typing
 Plug 'natw/keyboard_cat.vim', { 'on':  'PlayMeOff' }
-" Man reading in vim
-Plug 'jez/vim-superman'
 " Matchit enhances motions
-Plug 'edsono/vim-matchit'
+Plug 'benjifisher/matchit.zip'
 " More . repeat functionality
 Plug 'tpope/vim-repeat'
 " Delete all but current buffer
