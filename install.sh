@@ -41,30 +41,9 @@ ask() {
 }
 
 if ask "Install missing software?" Y; then
-    if ask "Are you running Debian and want to install missing packages?" Y; then
-        sudo apt-key add ./packages/repo.keys
-        sudo cp -R ./packages/sources.list* /etc/apt/
-        sudo apt-get update
-        sudo apt-get install dselect
-        sudo dselect update
-        sudo dpkg --set-selections < ./package-selections
-        sudo apt-get dselect-upgrade -y
-        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-    fi
-
     if ask "Install neovim?" Y; then
-        distro=`cat /etc/*-release`
+        if ask "are you on *buntu?" Y; then
 
-        if [[ $distro == *"debian"* ]]; then
-            sudo apt-get install git libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
-            git clone https://github.com/neovim/neovim
-            cd neovim
-            make && sudo make install
-            sudo pip3 install neovim
-            cd ..
-        fi
-        if [[ $distro == *"ubuntu"* ]]; then
             sudo apt-get install software-properties-common
             sudo apt-get install python-dev python-pip python3-dev python3-pip
             sudo add-apt-repository ppa:neovim-ppa/unstable
@@ -78,52 +57,6 @@ if ask "Install missing software?" Y; then
             sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
             sudo update-alternatives --config editor
         fi
-        if [[ $distro == *"centos"* ]]; then
-            sudo yum -y install git autoconf automake cmake gcc gcc-c++ libtool make pkgconfig unzip
-            git clone https://github.com/neovim/neovim
-            cd neovim
-            make && sudo make install
-            cd ..
-        fi
-        if [[ $distro == *"arch"* ]]; then
-            sudo pacman -Syu neovim
-            sudo pacman -S python2-neovim python-neovim
-        fi
-
-    fi
-
-    if ask "Install i3-gaps?" Y; then
-        #i3-gaps
-        git clone https://www.github.com/Airblader/i3 i3-gaps
-        cd i3-gaps
-        git checkout gaps && git pull
-        make
-        sudo make install
-    fi
-
-    if ask "Install material design lockscreen?" Y; then
-        #lightdm-webkit-greeter
-        wget https://launchpad.net/lightdm-webkit-greeter/trunk/1.0/+download/lightdm-webkit-greeter-1.0.tar.gz
-        tar xfv lightdm-webkit-greeter-1.0.tar.gz
-        rm lightdm-webkit-greeter-1.0.tar.gz
-        cd lightdm-webkit-greeter-1.0
-        ./configure
-        make
-        sudo make install
-
-        cd /usr/share/lightdm-webkit/themes
-        sudo git clone https://github.com/artur9010/lightdm-webkit-material.git
-        sudo sed -i 's/manokwari-theme-greeter/lightdm-webkit-material/g' /etc/lightdm/lightdm-webkit-greeter.conf
-        sudo sed -i 's/#*greeter-session*/greeter-session=lightdm-webkit-greeter #/g' /etc/lightdm/lightdm.conf
-    fi
-
-    if ask "Install moka icon them?" Y; then
-        #moka-icon-theme
-        git clone https://github.com/moka-project/moka-icon-theme.git
-        cd moka-icon-theme
-        bash autogen.sh
-        make
-        sudo make install
     fi
 
     if ask "Install oh-my-zsh" Y; then
