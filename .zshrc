@@ -99,5 +99,12 @@ alias gp="git push $1 $2"
 alias glo="git log --oneline"
 alias gsa="git status"
 
+if type tig > /dev/null 2>&1; then
+    alias glo="tig"
+    alias gsa="tig status"
+fi
+
 BASE16_SHELL="$HOME/.config/base16-shell/base16-gooey.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -81,6 +81,8 @@ Plug 'vim-scripts/BufOnly.vim'
 Plug 'scrooloose/nerdtree'
 " TagBar
 Plug 'majutsushi/tagbar'
+"OceanicNext Colorscheme
+Plug 'mhartington/oceanic-next'
 
 "autocomplete
 function! DoRemote(arg)

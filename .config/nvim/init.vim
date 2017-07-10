@@ -24,6 +24,8 @@ set noswapfile
 set mouse=
 set cursorline
 set inccommand=split
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1 
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -49,6 +51,15 @@ source ~/.config/nvim/plug.vim
 set noswapfile
 set nobackup
 set nowb
+
+" ================ Colorscheme ====================
+if (has("termguicolors"))
+ set termguicolors
+endif
+
+" Theme
+syntax enable
+colorscheme OceanicNext
 
 " ================ Persistent Undo ==================
 " Keep undo history across sessions, by storing in file.
